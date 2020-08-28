@@ -10,7 +10,7 @@ from sklearn.manifold import TSNE
 
 
 iteration_list = [250]
-perplexity_list = [3, 10, 25, 50]
+perplexity_list = [3]
 pca_dim_list = [25]
 learning_rate_list = [10]
 SEED=2020
@@ -65,7 +65,7 @@ def read_image(image_path, mode, IN=False):
             gray_mean_std = ([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
         yuv = (yuv - gray_mean_std[0]) / gray_mean_std[1]
         if mode == 'Y':
-            img = yuv[0]
+            img = yuv[:,:,0]
         else:
             img = yuv
     else:
