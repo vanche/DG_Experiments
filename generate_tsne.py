@@ -48,7 +48,7 @@ def sample_images(datasets_path, SEED=2020, n_sample=400):
 def read_image(image_path, mode, IN=False):
     img = Image.open(image_path).convert('RGB')
     img = img.resize((512, 512))
-    if mode == 'RGB' or mode == 'L':
+    if mode == 'RGB':
         img = img.convert(mode)
         img = np.array(img).astype(np.float32) / 255.
         if IN:
